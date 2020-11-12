@@ -5,6 +5,7 @@ COPY . /var/www/html
 ADD . /var/www
 RUN chown -R www-data:www-data /var/www
 RUN chmod 755 /var/www
+RUN chmod -R 777 bootstrap/cache
 WORKDIR /var/www/html 
 RUN composer install \ 
     --ignore-platform-reqs \ 
