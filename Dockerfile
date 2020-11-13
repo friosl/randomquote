@@ -5,6 +5,7 @@ ADD . /var/www
 RUN chown -R www-data:www-data /var/www
 RUN chmod 755 /var/www
 COPY . /var/www/html 
+COPY ./public/.htaccess /var/www/html/.htaccess
 WORKDIR /var/www/html 
 RUN composer install \ 
     --ignore-platform-reqs \ 
@@ -13,6 +14,6 @@ RUN composer install \
     --no-scripts \ 
     --prefer-dist 
 
-RUN chmod -R 777 bootstrap/cache
+RUN chmod -R 777 storage
 RUN a2enmod rewrite 
 RUN service apache2 restart 
