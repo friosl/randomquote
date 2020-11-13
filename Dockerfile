@@ -11,7 +11,7 @@ RUN composer install \
     --no-interaction \ 
     --no-plugins \
     --no-scripts \ 
-    --prefer-dist \
+    --prefer-dist 
 
 RUN chmod -R 777 bootstrap/cache
 RUN a2enmod rewrite 
